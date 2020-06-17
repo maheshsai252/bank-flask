@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+
+  <div class="container">
+
+       <form name="login" action="" method="post" novalidate>
+      <fieldset class="form-group">
+          <legend>{{title}}</legend>
+
+              <p> {{ form.customer_ssid.label }}</br>
+                  {{ form.customer_ssid }}
+                  {% for error in form.customer_ssid.errors %}
+                   <span class="error-message">{{ error }}</span>
+                  {% endfor %}
+              </p>
+
+
+              <p>
+                  {{ form.submit() }}
+              </p>
+
+      </fieldset>
+      </form>
+  </div>
+{% endblock %}

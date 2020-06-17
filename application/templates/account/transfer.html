@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+
+  <div class="container">
+
+       <form name="debit" action="" method="post" novalidate>
+      <fieldset class="form-group">
+          <legend>{{title}}</legend>
+          {{ form.hidden_tag() }}
+              <p> {{ form.from_customer_ssid.label }}</br>
+                  {{ form.from_customer_ssid }}
+                  {% for error in form.from_customer_ssid.errors %}
+                   <span class="error-message">{{ error }}</span>
+                  {% endfor %}
+              </p>
+              <p> {{ form.from_account_id.label }}</br>
+                  {{ form.from_account_id }}
+                  {% for error in form.from_account_id.errors %}
+                   <span class="error-message">{{ error }}</span>
+                  {% endfor %}
+              </p>
+
+              <p> {{ form.from_amount.label }}</br>
+                  {{ form.from_amount }}
+                  {% for error in form.from_amount.errors %}
+                   <span class="error-message">{{ error }}</span>
+                  {% endfor %}
+              </p>
+              <br>
+
+              <p> {{ form.to_customer_ssid.label }}</br>
+                  {{ form.to_customer_ssid }}
+                  {% for error in form.to_customer_ssid.errors %}
+                   <span class="error-message">{{ error }}</span>
+                  {% endfor %}
+              </p>
+              <p> {{ form.to_account_id.label }}</br>
+                  {{ form.to_account_id }}
+                  {% for error in form.to_account_id.errors %}
+                   <span class="error-message">{{ error }}</span>
+                  {% endfor %}
+              </p>
+
+
+              <p>
+                  {{ form.submit() }}
+              </p>
+
+      </fieldset>
+      </form>
+  </div>
+{% endblock %}

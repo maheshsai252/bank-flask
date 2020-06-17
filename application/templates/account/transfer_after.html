@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+
+  <div class="container">
+
+
+          <legend>Transaction info </legend>
+          <p> Amount transfered</br>
+              {{ amount }}
+
+          </p>
+
+              <p>  From customer ssid</br>
+                  {{ data1['customer_ssid'] }}
+
+              </p>
+
+              <p> From account_type</br>
+                  {{ data1['account_type'] }}
+
+              </p>
+
+              <p> From account_id</br>
+                  {{ data1['account_id'] }}
+
+              </p>
+
+
+              <p> amount before transaction</br>
+                  {{ data1['amount'] }}
+
+              </p>
+              <p> amount after transaction</br>
+                  {{ amount1 }}
+
+              </p>
+
+              <p>  To customer ssid</br>
+                  {{ data2['customer_ssid'] }}
+
+              </p>
+
+              <p> To account_type</br>
+                  {{ data2['account_type'] }}
+
+              </p>
+
+              <p> To account_id</br>
+                  {{ data2['account_id'] }}
+
+              </p>
+
+
+              <p> amount before transaction</br>
+                  {{ data2['amount'] }}
+
+              </p>
+              <p> amount after transaction</br>
+                  {{ amount2 }}
+
+              </p>
+
+
+
+  </div>
+{% endblock %}

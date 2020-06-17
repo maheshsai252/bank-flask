@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="accounts">
+  <h1>Display accounts</h1>
+  <ul>
+    {% for item in data %}
+    <li>
+      <a href="{{url_for('get_account', id= item.account_id ) }}">{{item['account_id']}}</a>
+    </li>
+    {% endfor %}
+
+  </ul>
+
+
+
+</div>
+{% endblock %}

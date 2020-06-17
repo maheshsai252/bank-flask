@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>customer id</th>
+    <th>status</th>
+    <th>message</th>
+    <th>last updated</th>
+  </tr>
+</thead>
+<tbody>
+
+
+{% for item in data %}
+<tr>
+    <td>{{item['customer_ssid']}}</td>
+    <td>{{item['status']}}</td>
+    <td>{{item['message']}}</td>
+    <td>{{item['last_updated']}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock%}

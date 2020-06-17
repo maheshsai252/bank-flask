@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Bank</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css')}}"/>
+</head>
+<body>
+
+<div class="container">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="{{url_for('index')}}">My Bank</a>
+
+  </nav>
+
+
+
+    <div class="container">
+         <form name="register"  method="post" novalidate>
+        <fieldset class="form-group">
+            <legend>Register</legend>
+
+                <p> {{ form.email.label }}</br>
+                    {{ form.email }}
+                    {% for error in form.email.errors %}
+                     <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+
+                <p> {{ form.password.label }}</br>
+                    {{ form.password }}
+                    {% for error in form.password.errors %}
+                     <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+
+                <p> {{ form.password_confirm.label }}</br>
+                    {{ form.password_confirm }}
+                    {% for error in form.password_confirm.errors %}
+                     <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+
+                <p> {{ form.first_name.label }}</br>
+                    {{ form.first_name }}
+                    {% for error in form.first_name.errors %}
+                     <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+
+                <p> {{ form.last_name.label }}</br>
+                    {{ form.last_name }}
+                    {% for error in form.last_name.errors %}
+                     <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p> {{ form.role.label }}</br>
+                    {{ form.role }}
+                    {% for error in form.role.errors %}
+                     <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+
+                <p>
+                    {{ form.submit() }}
+                </p>
+
+        </fieldset>
+        </form>
+    </div>
+
+</div>
+    {% include "common/footer.html" %}
+</body>
+</html>

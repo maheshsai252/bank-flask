@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<table class="table table-bordered">
+<thead>
+
+    <tr>
+      <th>customer id</th>
+      <th>account_type</th>
+      <th>status</th>
+      <th>message</th>
+      <th>last updated</th>
+      <th>account id</th>
+      <th>details of account</th>
+
+    </tr>
+
+
+
+</thead>
+
+
+<tbody>
+  {% for item in data %}
+  <tr>
+      <td>{{item['customer_ssid']}}</td>
+      <td>{{item['account_type']}}</td>
+      <td>{{item['status']}}</td>
+      <td>{{item['message']}}</td>
+      <td>{{item['last_updated']}}</td>
+      <td>{{item['account_id']}}</td>
+      <td>
+        <a href="{{url_for('.get_account', id=item.account_id )}}">details</a>
+      </td>
+  </tr>
+  {% endfor %}
+</tbody>
+
+
+</table>
+{% endblock%}

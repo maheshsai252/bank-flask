@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form class="getaccountsform" action="" method="post">
+  <fieldset class="form-group">
+      <legend>Add account</legend>
+      {{ form.hidden_tag() }}
+          <p> {{ form.customer_ssid.label }}</br>
+              {{ form.customer_ssid }}
+              {% for error in form.customer_ssid.errors %}
+               <span class="error-message">{{ error }}</span>
+              {% endfor %}
+          </p>
+
+
+
+
+
+          <p>
+              {{ form.submit() }}
+          </p>
+
+  </fieldset>
+
+
+</form>
+
+{%endblock%}

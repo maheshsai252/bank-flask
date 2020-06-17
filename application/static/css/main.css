@@ -1,0 +1,70 @@
+html,body{
+
+
+height: 100%;
+font-family: 'Numans', sans-serif;
+margin-bottom: 200px;
+}
+
+p{
+  margin-top: 20px;
+}
+.login-container{
+height: 100%;
+align-content: center;
+
+}
+
+.card{
+
+height: 400px;
+margin-top: 40px;
+margin-left: 50px;
+margin-right: inherit;
+margin-bottom: 10px; /* Added */
+float: left;
+width: 400px;
+background-color: white;
+}
+.card-header h3{
+
+  color: #75746d;
+
+
+}
+.button
+{
+
+  color: white;
+}
+
+.error-message
+{
+  color: red;
+}
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 0px;
+    margin-right: 100px;
+    height: 150px; /* .push must be the same height as .footer */
+}
+.footer
+{
+  background-color: black;
+  color: white;
+
+
+}
+.footer-head
+{
+  color: yellow;
+}
+.navbar
+{
+  color: black;
+}
