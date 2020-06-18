@@ -3,7 +3,7 @@ html,body{
 
 height: 100%;
 font-family: 'Numans', sans-serif;
-margin-bottom: 200px;
+margin-bottom: 600px;
 }
 
 p{
@@ -47,16 +47,19 @@ background-color: white;
 .footer {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 90%;
+    margin-left: 100px;
     margin-top: 50px;
-    margin-left: 0px;
-    margin-right: 100px;
+
+
     height: 150px; /* .push must be the same height as .footer */
 }
 .footer
 {
-  background-color: black;
+  background-color:#79bdb6 ;
   color: white;
+  border-top-left-radius:40%;
+   border-top-right-radius:40%;
 
 
 }
@@ -66,5 +69,26 @@ background-color: white;
 }
 .navbar
 {
+  margin-left: 0;
   color: black;
+}
+.nav2
+{
+  position: relative;
+}
+.navbar .navbar-brand img {
+  height: 70px;
+  width :100px;
+  border-radius: 20%;
+}
+.wrapper{
+  margin-left: 0;
+}
+.head
+{
+  background-color: white;
+}
+.cont
+{
+  padding-bottom: 40px;
 }

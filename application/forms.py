@@ -3,13 +3,13 @@ from wtforms import StringField, PasswordField, SubmitField, BooleanField,Intege
 from wtforms.validators import DataRequired, Email, Length, EqualTo, ValidationError,Optional
 from application.models import User
 
-
+#login form
 class LoginForm(FlaskForm):
     email   = StringField("User Name", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired(), Length(min=6,max=15)])
     remember_me = BooleanField("Remember Me")
     submit = SubmitField("Login")
-
+#register form
 class RegisterForm(FlaskForm):
     email   = StringField("User Name", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired(),Length(min=6,max=15)])
@@ -24,61 +24,65 @@ class RegisterForm(FlaskForm):
         if user:
             raise ValidationError("Email is already in use. Pick another one.")
 
-
+#add-customer form
 class AddCustomerForm(FlaskForm):
 
-    customer_ssid = StringField("customer ssn id", validators=[DataRequired(),Length(min=9,max=9)])
-    customer_name=StringField("customer name",validators=[DataRequired()])
-    age=IntegerField("age",validators=[DataRequired()])
-    address = TextAreaField("address",validators=[DataRequired()])
-    state= SelectField("state",choices=[('ap','ap'),('ts','ts')],validators=[DataRequired()])
-    city=StringField("city",validators=[DataRequired()])
+    customer_ssid = StringField("Customer SSNID", validators=[DataRequired(),Length(min=9,max=9)])
+    customer_name=StringField("Customer Name",validators=[DataRequired()])
+    age=IntegerField("Age",validators=[DataRequired()])
+    address = TextAreaField("Address",validators=[DataRequired()])
+    state= SelectField("State",choices=[('ap','ap'),('ts','ts')],validators=[DataRequired()])
+    city=StringField("City",validators=[DataRequired()])
     submit = SubmitField("Add Customer")
-
+#update-customer form
 class UpdateCustomerForm(FlaskForm):
-    customer_ssid = StringField("customer ssn id", validators=[DataRequired(),Length(min=9,max=9)])
-    submit = SubmitField("update Now")
+    customer_ssid = StringField("Customer SSNID", validators=[DataRequired(),Length(min=9,max=9)])
+    submit = SubmitField("Update Now")
+#update with further details form
 class UpdateCustomerFormUpdate(FlaskForm):
 
-    age=IntegerField("new age")
-    address = TextAreaField(" new address")
-    city=StringField("new city")
-    submit = SubmitField("Register Now")
-
+    age=IntegerField("New Age")
+    address = TextAreaField(" New Address")
+    city=StringField("New City")
+    submit = SubmitField("Update Now")
+#delete customer form
 class DeleteCustomerForm(FlaskForm):
-    customer_ssid = StringField("customer ssn id", validators=[DataRequired(),Length(min=9,max=9)])
+    customer_ssid = StringField("Customer SSNID", validators=[DataRequired(),Length(min=9,max=9)])
     submit = SubmitField("Delete Now")
+#delete account form
 class DeleteAccountForm(FlaskForm):
-    account_id = StringField("Account id", validators=[DataRequired(),Length(max=9)])
+    account_id = StringField("Account ID", validators=[DataRequired(),Length(max=9)])
     submit = SubmitField("Delete Now")
-
+#add-account form
 class AddAccountForm(FlaskForm):
 
-    customer_ssid = StringField("customer ssn id", validators=[DataRequired(),Length(min=9,max=9)])
-    account_type= SelectField("state",choices=[('savings','savings'),('current','current')],validators=[DataRequired()])
-    amount=IntegerField("amount",validators=[DataRequired()])
+    customer_ssid = StringField("Customer SSNID", validators=[DataRequired(),Length(min=9,max=9)])
+    account_type= SelectField("State",choices=[('savings','savings'),('current','current')],validators=[DataRequired()])
+    amount=IntegerField("Amount",validators=[DataRequired()])
     submit = SubmitField("Add Account")
-
+#get-accounts form
 class GetAccounts(FlaskForm):
-        customer_ssid = StringField("customer ssn id", validators=[DataRequired(),Length(min=9,max=9)])
+        customer_ssid = StringField("Customer SSNID", validators=[DataRequired(),Length(min=9,max=9)])
         submit = SubmitField("Get Accounts")
-
+#get-statement form
 class GetStatement(FlaskForm):
-        account_id = StringField("account id", validators=[DataRequired(),Length(max=9)])
-        number = IntegerField("number",validators=[Optional()])
+        account_id = StringField("Account ID", validators=[DataRequired(),Length(max=9)])
+        number = IntegerField("Number of Transactions",validators=[Optional()])
         start_date = DateField('Start Date',validators=[Optional()])
         end_date = DateField('End Date',validators=[Optional()])
         submit = SubmitField("Get statement")
+#Transaction debit and credit form
 class AccountTransact(FlaskForm):
-        customer_ssid = StringField("customer ssn id", validators=[DataRequired(),Length(min=9,max=9)])
-        account_id=StringField("Account id", validators=[DataRequired(),Length(max=9)])
-        amount=IntegerField("amount",validators=[DataRequired()])
+        customer_ssid = StringField("Customer SSNID", validators=[DataRequired(),Length(min=9,max=9)])
+        account_id=StringField("Account ID", validators=[DataRequired(),Length(max=9)])
+        amount=IntegerField("Amount",validators=[DataRequired()])
         submit = SubmitField("Transact")
 
+#transfer form account to account
 class AmountTransfer(FlaskForm):
-        from_customer_ssid = StringField("from customer ssn id", validators=[DataRequired(),Length(min=9,max=9)])
-        from_account_id=StringField("from Account id", validators=[DataRequired(),Length(max=9)])
-        from_amount=IntegerField("to be transferred amount",validators=[DataRequired()])
-        to_customer_ssid = StringField("to customer ssn id", validators=[DataRequired(),Length(min=9,max=9)])
-        to_account_id=StringField("to Account id", validators=[DataRequired(),Length(max=9)])
+        from_customer_ssid = StringField("From customer ssn id", validators=[DataRequired(),Length(min=9,max=9)])
+        from_account_id=StringField("From Account id", validators=[DataRequired(),Length(max=9)])
+        from_amount=IntegerField("To be transferred amount",validators=[DataRequired()])
+        to_customer_ssid = StringField("To customer ssn id", validators=[DataRequired(),Length(min=9,max=9)])
+        to_account_id=StringField("To Account id", validators=[DataRequired(),Length(max=9)])
         submit = SubmitField("Transfer")

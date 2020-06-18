@@ -1,7 +1,6 @@
 import flask
 from application import db
-# from werkzeug.security import generate_password_hash, check_password_hash
-
+#User database
 class User(db.Document):
     user_id     =   db.IntField( unique=True )
     first_name  =   db.StringField( max_length=50 )
@@ -18,13 +17,13 @@ class User(db.Document):
         # v= check_password_hash(self.password, password)
 
         return self.password == password
-
+#customer status database
 class CustomerStatus(db.Document):
     customer_ssid = db.IntField(max_length=9)
     status=db.StringField(max_length=10)
     message=db.StringField(max_length=100)
     last_updated=db.DateTimeField()
-
+#account status collection
 class AccountStatus(db.Document):
     customer_ssid = db.IntField(max_length=9)
     account_id = db.IntField(max_length=9)
@@ -32,7 +31,7 @@ class AccountStatus(db.Document):
     status=db.StringField(max_length=20)
     message=db.StringField(max_length=100)
     last_updated=db.DateTimeField()
-
+#customer collection
 class Customer(db.Document):
     customer_ssid = db.IntField(max_length=9)
     customer_name = db.StringField(max_length=30)
@@ -41,6 +40,7 @@ class Customer(db.Document):
     state=db.StringField(max_length=30)
     city = db.StringField(max_length=30)
 
+#account collection
 
 class Account(db.Document):
     customer_ssid = db.IntField(max_length=9)

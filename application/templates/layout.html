@@ -10,13 +10,16 @@
 <body>
 <div class="wrapper">
   <div class="container">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <a class="navbar-brand" href="#">My Bank</a>
+    <div class="head">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='images/bank-logo.png')}}"></a>
 
-    </nav>
+      </nav>
 
 
-      {% include "common/navscreen.html" %}
+        {% include "common/navscreen.html" %}
+    </div>
+
 
       <!-- {% if session['username'] %}
       <span class="user">Welcome, {{ session['username'] }}</span>
@@ -36,7 +39,7 @@
       {% endblock %}
 
   </div>
-  
+
 </div>
 
 

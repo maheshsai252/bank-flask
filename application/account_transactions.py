@@ -6,10 +6,12 @@ from application.forms import AccountTransact,AmountTransfer,GetStatement
 from application.models import User,Customer,Account,CustomerStatus,AccountStatus
 
 from datetime import datetime
-
+#debit transaction
 @app.route("/debit",methods=['GET','POST'])
 def debit():
     form=AccountTransact()
+    if not session.get('username'):
+        return redirect(url_for('login'))
     if form.validate_on_submit():
         customer_id = form.customer_ssid.data
         account_id = form.account_id.data
@@ -28,9 +30,12 @@ def debit():
             return(redirect(url_for('debit')))
     return render_template('account/debit.html',form=form,role=session.get('role'),title="Debit Transaction")
 
+#credit transaction form
 @app.route("/credit",methods=['GET','POST'])
 def credit():
     form=AccountTransact()
+    if not session.get('username'):
+        return redirect(url_for('login'))
     if form.validate_on_submit():
         customer_id = form.customer_ssid.data
         account_id = form.account_id.data
@@ -49,11 +54,13 @@ def credit():
             return(redirect(url_for('debit')))
     return render_template('account/debit.html',form=form,role=session.get('role'),title="Cedit Transaction")
 
-
+#transfer form
 
 @app.route("/transfer",methods=['GET','POST'])
 def transfer():
     form=AmountTransfer()
+    if not session.get('username'):
+        return redirect(url_for('login'))
     if form.validate_on_submit():
         customer_id = form.from_customer_ssid.data
         account_id = form.from_account_id.data
@@ -84,7 +91,7 @@ def transfer():
     return render_template('account/transfer.html',role=session.get('role'),form=form,title="Transfer Amount")
 
 
-
+#status form
 
 
 
@@ -92,6 +99,8 @@ def transfer():
 def account_status_form():
 
     form=GetStatement()
+    if not session.get('username'):
+        return redirect(url_for('login'))
     if form.validate_on_submit():
         id=form.account_id.data
         n=form.number.data

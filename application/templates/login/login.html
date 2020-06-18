@@ -9,7 +9,10 @@
       <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css')}}"/>
   </head>
   <body>
-    {% include "common/nav.html" %}
+    <nav class="navbar navbar-expand-sm bg-light navbar-dark ">
+      <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='images/bank-logo.png')}}"></a>
+      
+    </nav>
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}

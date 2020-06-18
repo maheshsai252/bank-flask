@@ -1,74 +1,77 @@
 <header>
-  {% if role %}
-      <nav class="navbar">
-          <ul class="nav nav-pills">
+  <div class="nav2">
+    {% if role %}
+        <nav class="navbar">
+            <ul class="nav nav-pills">
 
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Customer Management
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{url_for('add_customer')}}">add customer</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{url_for('update_customer')}}">update customer</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{url_for('delete_customer')}}">delete customer</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  Account Management
-</a>
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-  <a class="dropdown-item" href="{{url_for('add_account')}}">add account</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Customer Management
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{url_for('add_customer')}}">Add Customer</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{url_for('update_customer')}}">Update Customer</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{url_for('delete_customer')}}">Delete Customer</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Account Management
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <a class="dropdown-item" href="{{url_for('add_account')}}">Add Account</a>
+    <div class="dropdown-divider"></div>
+
+    <a class="dropdown-item" href="{{url_for('delete_account')}}">Delete Account</a>
+  </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Status
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <a class="dropdown-item" href="{{url_for('customer_status')}}">Customer Status</a>
   <div class="dropdown-divider"></div>
 
-  <a class="dropdown-item" href="{{url_for('delete_account')}}">delete account</a>
-</div>
-</li>
-<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Status
-</a>
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="{{url_for('customer_status')}}">customer status</a>
-<div class="dropdown-divider"></div>
-
-<a class="dropdown-item" href="{{url_for('account_status')}}">account status</a>
-</div>
-</li>
+  <a class="dropdown-item" href="{{url_for('account_status')}}">Account Status</a>
+  </div>
+  </li>
 
 
 
-              <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>
+                <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>
 
-
-          </ul>
-      </nav>
-      {% else %}
-      <nav>
-          <ul class="nav nav-pills">
-
-              <li class="nav-item"><a href="{{ url_for('get_accountsform') }}" class="nav-link">Account Details</a></li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Account Transactions
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{url_for('debit')}}">debit</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{{url_for('credit')}}">credit</a>
-                </div>
-              </li>
-              <li class="nav-item"><a href="{{ url_for('transfer') }}" class="nav-link">Transfer Amount</a></li>
-
-              <li class="nav-item">  <a class="dropdown-item" href="{{url_for('account_status_form')}}">account status</a></li>
-              <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>
 
             </ul>
-          </nav>
-    {%endif%}
+        </nav>
+        {% else %}
+        <nav>
+            <ul class="nav nav-pills">
+
+                <li class="nav-item"><a href="{{ url_for('get_accountsform') }}" class="nav-link">Account Details</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Account Transactions
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{url_for('debit')}}">Debit</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{url_for('credit')}}">Credit</a>
+                  </div>
+                </li>
+                <li class="nav-item"><a href="{{ url_for('transfer') }}" class="nav-link">Transfer Amount</a></li>
+
+                <li class="nav-item">  <a class="dropdown-item" href="{{url_for('account_status_form')}}">Account Status</a></li>
+                <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>
+
+              </ul>
+            </nav>
+      {%endif%}
+  </div>
+
 
 
       <hr style="clear:both">

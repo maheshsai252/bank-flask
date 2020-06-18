@@ -10,22 +10,29 @@
 
           <legend>Account info</legend>
 
-              <p>  customer ssid</br>
-                  {{ data['customer_ssid'] }}
+              <p>  Customer SSID :
+                  <bold> {{ data['customer_ssid'] }}</bold>
+
+
+              </p>
+              </br>
+
+              <p> Account ID :
+                <bold>  {{ data['account_id'] }}</bold>
+
+              </p>
+            </br>
+              <p> Account Type :
+                <bold>  {{ data['account_type'] }}</bold>
+
+              </p>
+</br>
+              <p> Amount :
+                <bold>{{ data['amount'] }}</bold>
 
               </p>
 
-              <p> account_type</br>
-                  {{ data['account_type'] }}
 
-              </p>
-
-              <p> amount</br>
-                  {{ data['amount'] }}
-
-              </p>
-
-            
 
   </div>
 {% endblock %}
