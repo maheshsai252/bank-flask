@@ -61,6 +61,8 @@ def register():
             user.save()
             flash("You are successfully registered!","success")
             return redirect(url_for('login'))
+    else:
+        print(form.errors)
 
     return render_template("login/register.html", title="Register", form=form)
 #logout route

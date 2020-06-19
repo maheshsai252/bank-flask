@@ -5,7 +5,7 @@ A basic flask web application which can perform all bank operations.
 
 To run :
 
-clone or download 
+clone or download
 
 cd <dir>
 
@@ -18,3 +18,8 @@ flask run
 mongod
 
 
+or
+
+docker-compose build
+
+docker-compose up

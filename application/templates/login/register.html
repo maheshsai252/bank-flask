@@ -21,6 +21,7 @@
          <form name="register"  method="post" novalidate>
         <fieldset class="form-group">
             <legend>Register</legend>
+            <p>{{ form.hidden_tag() }}</p>
 
                 <p> {{ form.email.label }}</br>
                     {{ form.email }}
